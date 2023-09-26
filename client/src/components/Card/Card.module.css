@@ -1,0 +1,12 @@
+.cardContent {
+  width: 25%;
+  margin: 25px;
+  padding: 30px;
+  background-color: rgb(198, 185, 209);
+  border: rgb(99, 18, 170) 3px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}

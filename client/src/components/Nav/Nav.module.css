@@ -1,0 +1,23 @@
+.navBar {
+
+  background-color: black;
+  color: beige;
+}
+.navBarList {
+    margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Nav__Li {
+  text-decoration: none;
+  list-style-type: none;
+}
+.Nav__Link {
+  text-decoration: none;
+  color: beige;
+  text-shadow: 9px;
+  font-size: larger;
+  font-weight: bolder;
+}

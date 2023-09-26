@@ -1,0 +1,140 @@
+import {
+  ADD_DOGS,
+  ON_SEARCH_ID,
+  ON_SEARCH_NAME,
+  ALL_TEMPERAMENTS,
+  FILTER_TEMPERAMENTS,
+  FILTER_AOZ,
+  FILTER_ORIGINS,
+  FILTER_WEIGHT,
+  RESET,
+  CREATE_DOG,
+} from "./actions-type";
+
+const initialState = {
+  dogs: [],
+  onSearchById: [],
+  temperaments: [],
+  dogsFilter: [],
+  dogsDb: [],
+  dogsApi: [],
+};
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_DOGS:
+      return {
+        ...state,
+        dogs: [...action.payload],
+        dogsFilter: [...action.payload],
+        //guardo en un array todos los perritos
+      };
+    /*     case DOGS_API:
+      return {
+        ...state,
+        dogsFilter: [...action.payload],
+      };
+
+    case DOGS_DB:
+      return {
+        ...state,
+        dogsFilter: [...action.payload],
+      }; */
+
+    case ON_SEARCH_ID:
+      console.log(action.payload);
+      return {
+        ...state,
+        onSearchById: action.payload,
+      };
+
+    case ON_SEARCH_NAME:
+      return {
+        ...state,
+        dogs: [...action.payload],
+      };
+
+    case CREATE_DOG:
+      return {
+        ...state,
+        dogsDb: [...state.dogsDb, action.payload],
+      };
+    case ALL_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: action.payload,
+      };
+
+    case FILTER_ORIGINS:
+      if (action.payload === "DB") {
+        const createdFiltered = state.dogsFilter.filter((el) => el.isCreated);
+        return {
+          ...state,
+          dogs: createdFiltered,
+        };
+      } else if (action.payload === "API") {
+        const createdFiltered = state.dogsFilter.filter((el) => !el.isCreated);
+        return {
+          ...state,
+          dogs: createdFiltered,
+        };
+      }
+      return {
+        ...state,
+        dogs: state.dogsFilter,
+      };
+
+    case FILTER_TEMPERAMENTS:
+      return {
+        ...state,
+        dogs:
+          action.payload === "Alldogs"
+            ? [...state.dogsFilter]
+            : state.dogsFilter.filter(
+                (dog) =>
+                  dog.temperament && dog.temperament.includes(action.payload)
+              ),
+        pageNumber: 1,
+      };
+
+    case FILTER_AOZ:
+      const filterAoZ = [...state.dogsFilter];
+      return {
+        ...state,
+        dogs:
+          action.payload === "A"
+            ? filterAoZ.sort((a, b) => a.name.localeCompare(b.name))
+            : filterAoZ.sort((a, b) => b.name.localeCompare(a.name)),
+        pageNumber: 1,
+      };
+
+    case FILTER_WEIGHT:
+      const filterWeight = [...state.dogs];
+      return {
+        ...state,
+        dogs:
+          action.payload === "maximum"
+            ? filterWeight.sort(
+                (a, b) =>
+                  Number(b.weight.split(" - ")[1]) -
+                  Number(a.weight.split(" - ")[1])
+              )
+            : filterWeight.sort(
+                (a, b) =>
+                  Number(a.weight.split(" - ")[1]) -
+                  Number(b.weight.split(" - ")[1])
+              ),
+        pageNumber: 1,
+      };
+    case RESET:
+      return {
+        ...state,
+        dogs: [...state.dogsFilter],
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;

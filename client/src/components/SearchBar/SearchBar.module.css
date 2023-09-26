@@ -1,0 +1,27 @@
+.searchBarInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  row-gap: 15px;
+}
+
+input {
+  width: 35%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px red solid;
+  background-color: rgb(203, 165, 160);
+  color: brown;
+}
+button {
+  margin-left: 5px;
+  width: 10%;
+  height: 25px;
+  border-radius: 8px;
+  border: 1px red solid;
+  background-color: rgb(203, 165, 160);
+  color: brown;
+}
+.h4Input {
+  color: rgb(19, 19, 58)
+}

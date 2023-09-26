@@ -1,0 +1,12 @@
+.home_page {
+  margin-top: 0px;
+  background-image: url(../../dogsPhotos/fondoLanding.jpg); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-attachment: fixed; /* Esto fija la imagen de fondo */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.searchBar {
+  padding-top: 20px;
+  margin-left: 65%;
+}
