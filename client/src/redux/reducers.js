@@ -8,7 +8,7 @@ import {
   FILTER_ORIGINS,
   FILTER_WEIGHT,
   RESET,
-  CREATE_DOG,
+ 
 } from "./actions-type";
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
   onSearchById: [],
   temperaments: [],
   dogsFilter: [],
-  dogsDb: [],
+  
   dogsApi: [],
 };
 
@@ -25,21 +25,9 @@ const reducer = (state = initialState, action) => {
     case ADD_DOGS:
       return {
         ...state,
-        dogs: [...action.payload],
-        dogsFilter: [...action.payload],
-        //guardo en un array todos los perritos
+        dogs: action.payload,
+        dogsFilter: action.payload,
       };
-    /*     case DOGS_API:
-      return {
-        ...state,
-        dogsFilter: [...action.payload],
-      };
-
-    case DOGS_DB:
-      return {
-        ...state,
-        dogsFilter: [...action.payload],
-      }; */
 
     case ON_SEARCH_ID:
       console.log(action.payload);
@@ -51,14 +39,10 @@ const reducer = (state = initialState, action) => {
     case ON_SEARCH_NAME:
       return {
         ...state,
-        dogs: [...action.payload],
+        dogs: action.payload,
       };
 
-    case CREATE_DOG:
-      return {
-        ...state,
-        dogsDb: [...state.dogsDb, action.payload],
-      };
+   
     case ALL_TEMPERAMENTS:
       return {
         ...state,
@@ -78,19 +62,20 @@ const reducer = (state = initialState, action) => {
           ...state,
           dogs: createdFiltered,
         };
+      } else {
+        return {
+          ...state,
+          dogs: state.dogsFilter,
+        };
       }
-      return {
-        ...state,
-        dogs: state.dogsFilter,
-      };
-
     case FILTER_TEMPERAMENTS:
+      const dogsFilter = state.dogsFilter;
       return {
         ...state,
         dogs:
           action.payload === "Alldogs"
-            ? [...state.dogsFilter]
-            : state.dogsFilter.filter(
+            ? dogsFilter
+            : dogsFilter.filter(
                 (dog) =>
                   dog.temperament && dog.temperament.includes(action.payload)
               ),
@@ -98,14 +83,31 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER_AOZ:
-      const filterAoZ = [...state.dogsFilter];
+      const filterAoZ = [...state.dogs];
+     
+
+      action.payload === "A"
+        ? filterAoZ.sort(function (a, b) {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if (b.name > a.name) {
+              return -1;
+            }
+            return 0;
+          })
+        : filterAoZ.sort(function (a, b) {
+            if (a.name > b.name) {
+              return -1;
+            }
+            if (b.name > a.name) {
+              return 1;
+            }
+            return 0;
+          });
       return {
         ...state,
-        dogs:
-          action.payload === "A"
-            ? filterAoZ.sort((a, b) => a.name.localeCompare(b.name))
-            : filterAoZ.sort((a, b) => b.name.localeCompare(a.name)),
-        pageNumber: 1,
+        dogs: filterAoZ,
       };
 
     case FILTER_WEIGHT:

@@ -31,7 +31,7 @@ const validation = (dogsData) => {
   } else if (!dogsData.min_weight || !dogsData.max_weight)
     errors.min_weight = "You must fill in both fields";
   else if (Number(dogsData.min_weight) >= Number(dogsData.max_weight))
-    errors.mix_weight = "The second value must be greater than the first";
+    errors.min_weight = "The second value must be greater than the first";
 
   if (
     !regexLife.test(dogsData.min_lifeSpan) ||
@@ -44,7 +44,7 @@ const validation = (dogsData) => {
     errors.min_lifeSpan = "The second value must be greater than the first";
 
   if (dogsData.temperaments.length === 0)
-    errors.temperament = "You must select at least 1 temperament";
+    errors.temperaments = "You must select at least 1 temperament";
 
   return errors;
 };

@@ -1,0 +1,21 @@
+.ErrorTotal {
+  margin-top: 0;
+  padding: 0;
+  height: 1600px;
+  background-image: url("../../dogsPhotos/notFound.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Error {
+  margin-left: 40%;
+  padding-top: 350px;
+}
+.errorH2 {
+  font-size: 100px;
+  color: red;
+}
+.buttonError {
+  height: 30px;
+  width: 15%;
+}

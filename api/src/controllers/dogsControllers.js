@@ -21,7 +21,7 @@ const createDog = async (
   if (existingDog) {
     return "El perro ya existe ";
   }
-  console.log(temperaments);
+ 
 
   const newDog = await Dog.create({
     name,
@@ -34,7 +34,7 @@ const createDog = async (
     max_lifeSpan,
   });
 
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
   const temperamentDb = await Temperament.findAll({
     where: {

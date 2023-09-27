@@ -1,0 +1,29 @@
+.Detail {
+  background-image: url(../../dogsPhotos/fondoLanding.jpg); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.DetailContent {
+  width: 25%;
+  margin: 25px;
+  padding: 30px;
+  background-color: rgb(198, 185, 209);
+  border: rgb(99, 18, 170) 3px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.DetailButton {
+  width: 100px;
+  height: 60px;
+}

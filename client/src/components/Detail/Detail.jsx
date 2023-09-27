@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { onSearchId } from "../redux/actions";
+import { onSearchId } from "../../redux/actions";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import style from "./Detail.module.css";
 
 export default function Detail() {
   const { id } = useParams();
@@ -17,27 +18,26 @@ export default function Detail() {
   }, [dispatch]);
 
   return (
-    <div className="Container__Detail">
-      <div className="Detail__Card">
+    <div className={style.Detail}>
+      <div className={style.DetailContent}>
         <img
-          className="Detail__img"
           src={onSearchById.image}
           alt={onSearchById.name}
+          height={200}
+          width={200}
         />
-        <div className="Detail__text">
-          <h1 className="Detail__h1">{onSearchById.name}</h1>
+        <div>
+          <h1>{onSearchById.name}</h1>
           <br />
           <h3>Weight: {onSearchById.weight} Pounds</h3>
           <h3>Height: {onSearchById.height} Inches</h3>
           <h3>Life Span: {onSearchById.years}</h3>
-          <h3 className="Detail__Temp">
-            Temperaments : 
-          </h3>
+          <h3>Temperaments :</h3>
           <h5>{onSearchById.temperament}</h5>
         </div>
 
         <Link to={"/home"}>
-          <button className="Detail__Button">boton</button>
+          <button className={style.DetailButton}>volver a home</button>
         </Link>
       </div>
     </div>

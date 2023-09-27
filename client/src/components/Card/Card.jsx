@@ -10,7 +10,7 @@ export default function Card({
   temperaments,
   handleDelete,
 }) {
-  console.log(typeof id);
+  
   return (
     <div className={style.cardContent}>
       <div>

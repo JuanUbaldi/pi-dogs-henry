@@ -1,0 +1,17 @@
+.footer {
+  height: 250px;
+  margin-left: 150px;
+  margin-right: 150px;
+  background-image: url("../../dogsPhotos/footerPhoto.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.aFooter{
+    text-decoration: none;
+    color: brown;
+    font-size: 50px;
+}

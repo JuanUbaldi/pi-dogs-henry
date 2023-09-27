@@ -6,9 +6,9 @@ export default function LandingPage() {
   return (
     <div className={style.Landing__Container}>
       <div className={style.Landing__text}>
-        <h1 className="Landing__title">Welcome to my dogs app</h1>
+        <h1 className={style.Landing_h1} >Welcome to my dogs app</h1>
 
-        <Link className="Landing__Button" to={"/home"}>
+        <Link className={style.Landing_button}  to={"/home"}>
           Home
         </Link>
       </div>

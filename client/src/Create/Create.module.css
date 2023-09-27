@@ -1,0 +1,81 @@
+.Create__Container {
+  width: 100%;
+  margin-left: 100px;
+  width: 80%;
+
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Container {
+  background-image: url("../dogsPhotos/formDogs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 1700px;
+}
+.h1Container {
+  text-align: center;
+  color: brown;
+}
+.buttonContainer {
+  margin-top: 50px;
+}
+.CreateLeftContainer {
+  background-color: rgba(223, 95, 95, 0.2);
+  border: 4px rgb(78, 22, 22) solid;
+  width: 500px;
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.errorsValidation {
+  color: violet;
+  font-weight: bold;
+}
+
+.CreateRightContainer {
+  background-color: rgba(223, 95, 95, 0.2);
+  border: 4px rgb(78, 22, 22) solid;
+  height: 600px;
+  margin-top: 50px;
+  margin-left: 900px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.message {
+  margin-top: 100px;
+  margin-left: 35%;
+  font-style: oblique;
+}
+
+.temps {
+  color: rgb(115, 68, 19);
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+.buttonForm{
+  width: 100px;
+  height: 60px;
+  margin-left: 25%;
+}
+.h1Create {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-left: 40%;
+  color: rgb(65, 29, 99);
+}

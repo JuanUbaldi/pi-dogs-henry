@@ -13,3 +13,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.Landing_button {
+  text-decoration: none;
+  font-size: 80px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: red;
+}

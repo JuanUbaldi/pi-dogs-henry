@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
-import Paginated from "../Paginated";
+
 import style from "./Cards.module.css";
 
 import { useState, useEffect } from "react";
+import Paginated from "../Paginated/Paginated";
+import { addDogs } from "../../redux/actions";
 
 export default function Cards() {
   const { dogs } = useSelector((state) => state);
@@ -14,8 +16,12 @@ export default function Cards() {
 
   const indexOFLastCharacter = currentPage * charactersPerPage;
   const indexOfFirstCharactetr = indexOFLastCharacter - charactersPerPage;
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const allCurrentCharacters = dogs?.slice(
+    dispatch(addDogs);
+    let allCurrentCharacters = dogs?.slice(
       indexOfFirstCharactetr,
       indexOFLastCharacter
     );
@@ -27,7 +33,6 @@ export default function Cards() {
   };
 
   const handleDelete = (id) => {
-    console.log(typeof id);
     let updatedCharacters = currentCharacters.filter((el) => el.id != id);
     console.log(updatedCharacters);
     setCurrentCharacters(updatedCharacters);
@@ -41,7 +46,7 @@ export default function Cards() {
             ({ id, name, weight, height, years, image, temperament }) => {
               return (
                 <Card
-                  key={id}
+                  key={id.toString()}
                   id={id.toString()}
                   name={name}
                   weight={weight}
@@ -58,6 +63,7 @@ export default function Cards() {
       </div>
       {
         <Paginated
+          currentPage={currentPage}
           paginated={paginated}
           charactersPerPage={charactersPerPage}
           allCharacters={dogs.length}
